@@ -46,7 +46,7 @@ export class RecipeListComponent {
     this.mealApi.getRecipesCategories().pipe(take(1)).subscribe({next: (data) => {
       let mappedData = data as {categories: Category[]}
       this.categories = mappedData.categories
-      this.selectedCategory = this.categories.find( el => el.strCategory = 'Dessert') || this.selectedCategory
+      this.selectedCategory = this.categories.find( el => el.strCategory === 'Dessert') || this.selectedCategory
       this.setSelectedCategory(this.selectedCategory)
     }})
   }
