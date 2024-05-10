@@ -1,0 +1,23 @@
+
+<nav class="top-menu">
+  <button class="category-list-button" [matMenuTriggerFor]="categoriesMenu">
+    <img [ngClass]="{'loading': !selectedCategory.strCategoryThumb || selectedCategory.strCategoryThumb === ''}"
+    [src]="selectedCategory.strCategoryThumb" alt="">
+    <span>{{selectedCategory.strCategory}}</span>
+    <img
+      src="./../../assets/svg/right-arrow.svg"
+      class="menu-arrow" />
+    </button>
+    <input type="text" class="search-input" #searchinput (keyup)="searchChanged.next($any($event.target).value)">
+</nav>
+<mat-menu class="menu-container" #categoriesMenu="matMenu">
+  <button class="category-menu" *ngFor="let category of categories" mat-menu-item (click)="setSelectedCategory(category)">
+    <img [src]="category.strCategoryThumb" alt="">
+    <span class="category-label">{{category.strCategory}}</span>
+  </button>
+</mat-menu>
+
+<h2 *ngIf="!loading && (!recipeList || recipeList.length === 0)" class="no-results">NO RESULTS</h2>
+<div class="card-container">
+  <app-recipe-card *ngFor="let recipe of recipeList" [recipe]="recipe"></app-recipe-card>
+</div>

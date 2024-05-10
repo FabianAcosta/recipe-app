@@ -1,0 +1,129 @@
+:host {
+  .card-container {
+    padding: 20px 35px;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-rows: auto;
+  }
+
+  .top-menu {
+    display: flex;
+    background-color: #63954b ;
+    align-items: center;
+    height: 80px;
+    padding: 0px 35px;
+
+    .category-list-button {
+      background-color: white;
+      border-radius: 10px;
+      border: 0px;
+      height: 50px;
+      width: 240px;
+      display: flex;
+      box-shadow: 2px 2px 7px #878787;
+      align-items: center;
+      img {
+        width: 80px;
+        height: 50px;
+        border-radius: 10px;
+        &.loading {
+          animation: pulsing 1s infinite;
+          background-color: #878787;
+        }
+      }
+      span {
+        line-height: 50px;
+        margin-left: 10px;
+      }
+
+      &:hover {
+        background-color: #dbd7d7;
+      }
+
+      .menu-arrow {
+        height: 25px;
+        width: 40px;
+        margin-left: auto;
+        color: #63954b;
+        fill: #63954b;
+
+      }
+    }
+
+    .search-input{
+      height: 50px;
+      width: 100%;
+      border-radius: 10px;
+      font-size: 35px;
+      font-weight:lighter;
+      margin-left: 20px;
+      border: 0;
+      outline-style: none;
+    }
+  }
+
+  .no-results {
+    text-align: center;
+    margin-top: 200px;
+  }
+
+}
+
+::ng-deep {
+  .category-menu {
+    height: 50px;
+    &.mat-mdc-menu-item{
+      margin: 5px 0;
+      width: 200px;
+    }
+    img {
+      width: 80px;
+      height: 50px;
+      border-radius: 10px;
+    }
+    span.mdc-list-item__primary-text {
+      display: flex;
+    }
+    .category-label{
+      line-height: 50px;
+      margin-left: 10px;
+    }
+    &.mat-mdc-menu-item {
+      width: 240px;
+    }
+  }
+}
+
+@media (max-width: 576px){
+  :host {
+    .top-menu {
+      flex-direction: column;
+      height: 118px;
+      justify-content: center;
+
+      .category-list-button{
+        width: 100%;
+      }
+
+      .search-input {
+        margin: 5px 0px 0px;
+      }
+    }
+
+  }
+}
+
+@keyframes pulsing {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.25;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

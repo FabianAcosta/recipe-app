@@ -1,0 +1,96 @@
+:host {
+  .top-menu {
+    display: flex;
+    background-color: #63954b ;
+    align-items: center;
+    height: 80px;
+    padding: 0px 50px;
+    a {
+      all: unset;
+      cursor: pointer;
+      font-size: 30px;
+      margin-right: 10px;
+      color: white;
+    }
+  }
+
+  .details-container {
+    padding: 50px;
+    display: grid;
+    gap: 10px;
+    grid-template:
+    "video side-info"
+    "instructions side-info" / 700px auto;
+
+    iframe {
+      grid-area: video;
+      width: 700px;
+      height: 500px;
+    }
+
+    .instructions {
+      grid-area: instructions;
+    }
+
+    .side-info{
+      grid-area: side-info;
+      mat-expansion-panel.mat-expanded{
+        min-height: 500px;
+      }
+    }
+
+    .info-label {
+      display: inline-block;
+      width: 70px;
+      font-weight: 500;
+    }
+
+    .info-row{
+      margin-bottom: 15px;
+    }
+  }
+
+  h1 {
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0;
+    font-family: 'Trebuchet MS', sans-serif;
+  }
+
+  @media (max-width: 850px){
+    .details-container{
+      padding: 10px;
+      grid-template:
+      "video"
+      "instructions"
+      "side-info" / 100%;
+
+      iframe {
+        width: 100%;
+      }
+
+    }
+
+    .top-menu{
+      padding: 0px 10px;
+    }
+
+
+  }
+
+  @media (max-width: 576px){
+    .details-container{
+      iframe {
+        height: 300px;
+      }
+    }
+    .top-menu{
+      padding: 0px 10px;
+      height: 50px;
+    }
+  }
+
+
+
+}
